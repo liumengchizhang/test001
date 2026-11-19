@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+ <style>
+        .marquee {
+            overflow: hidden;
+            display: block;
+        }
+
+        .marquee__track {
+            display: inline-flex;
+            white-space: nowrap;
+            will-change: transform;
+            -webkit-animation: marquee 20s linear infinite;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee:hover .marquee__track,
+        .marquee:focus-within .marquee__track {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+        @-webkit-keyframes marquee {
+            from {
+                -webkit-transform: translateX(0);
+                -webkit-transform: translateX(0);
+            }
+
+            to {
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          
+
+            /* 或直接允许滚动：删掉这条 */
+        }
+    </style>
+<body>
+    <div class="marquee">
+        <div class="marquee__track">
+            <span>内容内容</span><span aria-hidden="true">内容内容</span> <!-- 两份等长副本，位移 -50% 才无缝 -->
+        </div>
+    </div>
+</body>
+
+</html>
